@@ -1,5 +1,5 @@
 streamlit==1.22.0
-tensorflow==2.12.0
+tensorflow==2.16.1  
 nltk==3.8.1
 emoji==2.2.0
 pandas==2.0.2
