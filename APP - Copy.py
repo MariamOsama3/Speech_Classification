@@ -28,7 +28,7 @@ st.markdown("""
 @st.cache_resource
 def load_model_and_tokenizer():
     model = load_model('model10.h5')
-    with open('tokenizer.pickle', 'rb') as f:
+    with open('models/tokenizer.pkl', 'rb') as f:
         tokenizer = pickle.load(f)
     return model, tokenizer
 
