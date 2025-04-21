@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
-from utils.preprocessing import clean_tweet
+from preprocessing.py import clean_tweet
 
 # Configure page
 st.set_page_config(
