@@ -1,23 +1,9 @@
-# APP.py
 import streamlit as st
 import pickle
 import numpy as np
-import sys
-import os
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
-
-# Add current directory to Python path
-sys.path.append(os.path.dirname(__file__))
-
-# Import from utils
-try:
-    from utils.preprocessing import clean_tweet
-except ImportError:
-    def clean_tweet(text):
-        # Fallback simple cleaning if preprocessing.py is missing
-        return text.lower().strip()
-
+from utils.preprocessing import clean_tweet
 # Configure page
 st.set_page_config(
     page_title="Tweet Sentiment Analyzer",
@@ -41,13 +27,9 @@ st.markdown("""
 # Load model and tokenizer
 @st.cache_resource
 def load_model_and_tokenizer():
-    model = load_model('model10.h5')  # Use your existing model file
-    try:
-        with open('tokenizer.pkl', 'rb') as f:  # Load from root directory
-            tokenizer = pickle.load(f)
-    except FileNotFoundError:
-        st.error("Tokenizer file (tokenizer.pkl) not found!")
-        raise
+    model = load_model('models/sentiment_model.keras')
+    with open('models/tokenizer.pkl', 'rb') as f:
+        tokenizer = pickle.load(f)
     return model, tokenizer
 
 model, tokenizer = load_model_and_tokenizer()
