@@ -1,6 +1,7 @@
 streamlit==1.34.0
-tensorflow-cpu==2.16.1  # Lightweight CPU-only version
+tensorflow-cpu==2.16.1
 nltk==3.8.1
 emoji==2.2.0
 pandas==2.2.2
-numpy==1.26.4  # Explicitly matches TF 2.16's requirements
+numpy==1.26.4
+scikit-learn==1.4.2
